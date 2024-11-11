@@ -12,6 +12,8 @@ export const RegisterForm = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState<string | null>(null);
+	const [confirmPassword, setConfirmPassword] = useState("");
+
 	const onSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 		try {
@@ -42,7 +44,6 @@ export const RegisterForm = () => {
 			<div className="grid w-full items-center gap-1.5">
 				<Label htmlFor="email">Email</Label>
 				<Input
-					required
 					value={email}
 					onChange={(e) => setEmail(e.target.value)}
 					id="email"
@@ -52,13 +53,22 @@ export const RegisterForm = () => {
 			<div className="grid w-full items-center gap-1.5">
 				<Label htmlFor="password">Password</Label>
 				<Input
-					required
 					value={password}
 					onChange={(e) => setPassword(e.target.value)}
 					id="password"
 					type="password"
 				/>
 			</div>
+			{/* <div className="grid w-full items-center gap-1.5">
+				<Label htmlFor="confirmPassword">Confirm Password</Label>
+				<Input
+					autoComplete="off"
+					value={confirmPassword}
+					onChange={(e) => setConfirmPassword(e.target.value)}
+					id="password"
+					type="password"
+				/>
+			</div> */}
 			{error && (
 				<Alert>
 					<Terminal className="h-4 w-4" />

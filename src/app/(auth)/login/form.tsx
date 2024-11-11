@@ -26,6 +26,7 @@ export const LoginForm = () => {
 				password,
 				callbackUrl,
 			});
+
 			if (!res?.error) {
 				router.push(callbackUrl);
 			} else {
@@ -42,7 +43,6 @@ export const LoginForm = () => {
 			<div className="grid w-full items-center gap-1.5">
 				<Label htmlFor="email">Email</Label>
 				<Input
-					required
 					value={email}
 					onChange={(e) => setEmail(e.target.value)}
 					id="email"
@@ -53,7 +53,6 @@ export const LoginForm = () => {
 				<Label htmlFor="password">Password</Label>
 				<Input
 					autoComplete="off"
-					required
 					value={password}
 					onChange={(e) => setPassword(e.target.value)}
 					id="password"
