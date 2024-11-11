@@ -38,8 +38,10 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ## TODO List:
 
-- [] Registration
-- [] Login
+- [x] Registration
+- [X] Login
 - [] Third-party authentication (FB, Google)
 - [] Password reset
 - [] Admin side
+- [] Confirm Password
+- 

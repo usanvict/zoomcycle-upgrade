@@ -1,18 +1,26 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
-import { User } from "./user";
 import { LoginButton, LogoutButton } from "./auth";
+import {
+	NavigationMenu,
+	NavigationMenuItem,
+	NavigationMenuList,
+} from "@/components/ui/navigation-menu";
 
 export default async function Home() {
 	const session = await getServerSession(authOptions);
 	return (
 		<main>
-			<LoginButton />
-			<LogoutButton />
-			<h2>Server Call</h2>
-			<pre>{JSON.stringify(session)}</pre>
-			<h2>Client Call</h2>
-			<User />
+			<div>
+				<NavigationMenu>
+					<NavigationMenuList>
+						<NavigationMenuItem>
+							<LoginButton />
+							<LogoutButton />
+						</NavigationMenuItem>
+					</NavigationMenuList>
+				</NavigationMenu>
+			</div>
 		</main>
 	);
 }
