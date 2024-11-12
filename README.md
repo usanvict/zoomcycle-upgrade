@@ -5,7 +5,7 @@
 - POST /classes
 - PUT /classes/:id
 - PATCH /classes/:id
-DELETE /classes/:id
+- DELETE /classes/:id
 
 
 ## TODO List:
