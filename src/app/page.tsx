@@ -15,12 +15,16 @@ export default async function Home() {
 				<NavigationMenu>
 					<NavigationMenuList>
 						<NavigationMenuItem>
-							<LoginButton />
-							<LogoutButton />
+							{session ? (
+								<LogoutButton /> // Show Logout button if logged in
+							) : (
+								<LoginButton /> // Show Login button if not logged in
+							)}
 						</NavigationMenuItem>
 					</NavigationMenuList>
 				</NavigationMenu>
 			</div>
+			<div>{session ? <div>Hoj</div> : <div>Nehoj</div>}</div>
 		</main>
 	);
 }

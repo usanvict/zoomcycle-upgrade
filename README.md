@@ -4,6 +4,7 @@ Created in Bruno
 ### API for spinning classes
 
 - GET /classes
+    - implemented skip and take for pagination
 - GET /classes/:id
 - POST /classes
 - PUT /classes/:id
@@ -15,10 +16,11 @@ Created in Bruno
 - PUT /users/:id
 - PATCH /users/:id
 
-### API for trainer's classes
+### API for user's classes
 
 - GET /users/:id/classes
 - GET /users/:id/classes/:id
+- POST /users/:id/classes/:id
 - DELETE /user/:id/classes/:id
 
 

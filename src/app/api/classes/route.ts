@@ -1,8 +1,13 @@
 import { prisma } from "@/lib/prisma";
-import { NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 
-export async function GET(request: Request) {
-	const spinningClasses = await prisma.spinningClass.findMany();
+export async function GET(request: NextRequest) {
+	const skip = request.nextUrl.searchParams.get("skip");
+	const take = request.nextUrl.searchParams.get("take");
+	const spinningClasses = await prisma.spinningClass.findMany({
+		skip: skip ? Number.parseInt(skip, 10) : undefined,
+		take: take ? Number.parseInt(take, 10) : undefined,
+	});
 	return NextResponse.json(spinningClasses);
 }
 
