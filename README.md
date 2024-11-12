@@ -40,7 +40,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 - [x] Registration
 - [X] Login
-[] Third-party authentication (FB, Google)
-[] Password reset
-[] Admin side
-[] Confirm Password 
+- [ ]  Third-party authentication (FB, Google)
+- [ ]  Password reset
+- [ ]  Admin side
+- [ ]  Confirm Password 
