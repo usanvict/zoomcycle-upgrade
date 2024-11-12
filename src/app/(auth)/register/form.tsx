@@ -12,7 +12,7 @@ export const RegisterForm = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState<string | null>(null);
-	const [confirmPassword, setConfirmPassword] = useState("");
+	//const [confirmPassword, setConfirmPassword] = useState("");
 
 	const onSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();

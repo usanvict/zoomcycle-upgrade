@@ -14,8 +14,54 @@ datasource db {
 }
 
 model User {
-  id       Int     @id @default(autoincrement())
-  email    String  @unique
-  password String
-  name     String?
+  id                Int                 @id @default(autoincrement())
+  email             String              @unique
+  password          String
+  name              String
+  membership        MembershipType
+  classes           SpinningClass[]
+  ClassRegistration ClassRegistration[]
+
+  @@map("participants")
+}
+
+model SpinningClass {
+  id                Int                 @id @default(autoincrement())
+  time              DateTime
+  music             String
+  language          String
+  paidMembers       Int                 @default(0)
+  walkIns           Int                 @default(0)
+  participants      User[]
+  ClassRegistration ClassRegistration[]
+  Trainer           Trainer             @relation(fields: [trainerId], references: [id])
+  trainerId         Int
+
+  @@map("spinning_classes")
+}
+
+model ClassRegistration {
+  participantId Int
+  classId       Int
+  registeredAt  DateTime @default(now())
+
+  Participant   User          @relation(fields: [participantId], references: [id], onDelete: Cascade)
+  SpinningClass SpinningClass @relation(fields: [classId], references: [id], onDelete: Cascade)
+
+  @@id([participantId, classId])
+  @@map("class_registrations")
+}
+
+enum MembershipType {
+  PAID
+  WALK_IN
+}
+
+model Trainer {
+  id      Int             @id @default(autoincrement())
+  email   String          @unique
+  name    String
+  classes SpinningClass[]
+
+  @@map("trainers")
 }

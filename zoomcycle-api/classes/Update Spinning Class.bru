@@ -1,0 +1,22 @@
+meta {
+  name: Update Spinning Class
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:3000/api/classes/6
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "time": "2024-11-18T10:00:00.000Z",
+    "music": "Indie Rock",
+    "language": "English",
+    "paidMembers": 20,
+    "walkIns": 10,
+    "trainerId": 1
+  }
+}
