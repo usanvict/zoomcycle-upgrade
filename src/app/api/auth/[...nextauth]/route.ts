@@ -55,13 +55,22 @@ export const authOptions: NextAuthOptions = {
 		}),
 	],
 	callbacks: {
+		async redirect({ url, baseUrl }) {
+			// If the user signed in from the homepage, redirect to `/dashboard`
+			if (url === `${baseUrl}/`) {
+				return `${baseUrl}/dashboard`;
+			}
+
+			// Default redirect to base URL if none of the above conditions match
+			return baseUrl;
+		},
 		session: ({ session, token }) => {
 			console.log("Session Callback", { session, token });
 			return {
 				...session,
 				user: {
 					...session.user,
-					id: token.id,
+					id: token.sub,
 				},
 			};
 		},

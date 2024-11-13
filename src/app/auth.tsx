@@ -8,5 +8,7 @@ export const LoginButton = () => {
 };
 
 export const LogoutButton = () => {
-	return <Button onClick={() => signOut()}>Sign Out</Button>;
+	return (
+		<Button onClick={() => signOut({ callbackUrl: "/" })}>Sign Out</Button>
+	);
 };

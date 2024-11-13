@@ -23,8 +23,6 @@ Created in Bruno
 - POST /users/:id/classes/:id
 - DELETE /user/:id/classes/:id
 
-
-
 ## TODO List:
 
 - [x] Registration
